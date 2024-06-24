@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>l1thium</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="https://gcdnb.pbrd.co/images/G0vKR2f9cWKt.x-icon?o=1" />
+    <style>
+        @keyframes rainbow {
+            0% {
+                color: #ff0000;
+            }
+
+            16.666% {
+                color: #ff9900;
+            }
+
+            33.333% {
+                color: #ffff00;
+            }
+
+            50% {
+                color: #00ff00;
+            }
+
+            66.666% {
+                color: #0000ff;
+            }
+
+            83.333% {
+                color: #9900ff;
+            }
+
+            100% {
+                color: #ff0000;
+            }
+        }
+        #overlay-text {
+            position: absolute;
+            top: 2%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 13px;
+            user-select: none;
+            pointer-events: none;
+            white-space: pre;
+            overflow-wrap: break-word;
+            z-index: -1;
+            font-family: 'Source Code Pro', monospace;
+            font-weight: 400;
+            max-width: 100%;
+            animation: rainbow 5s linear infinite;
+        }
+        .font-sans {
+            font-family: 'Source Code Pro', sans-serif !important;
+        }
+        .bg-gray-800 {
+            background-color: #000000;
+        }
+        .bg-gray-700 {
+            background-color: #050505;
+        }
+        .text-gray-400 {
+            color: #ccc;
+        }
+        .text-gray-800 {
+            color: #ccc;
+        }
+        .text-white {
+            color: #fff;
+        }
+        .text-black {
+            color: #000;
+        }
+        .shadow-md {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        body {
+            position: relative;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+        body::before {
+            content: "";
+            background-image: url('https://r2.guns.lol/1a81bba9-e50b-4045-976c-988bccb44819.mp4');
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            filter: brightness(30%);
+            z-index: -1;
+        }
+        .ubox {
+            backdrop-filter: blur(16px);
+            border: 2px solid transparent;
+            padding: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .ubox::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 2px solid;
+            border-image-slice: 1;
+            border-image-source: linear-gradient(to right, #ff0000, #ff9900, #ffff00, #00ff00, #0000ff, #9900ff, #ff0000);
+            border-image-repeat: round;
+            z-index: -1;
+            animation: rainbow 5s linear infinite;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); 
+            backdrop-filter: blur(16px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: ease-in-out 0.5s;
+            pointer-events: auto;
+        }
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            filter: brightness(20%);
+        }
+        .overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .overlay-text {
+            color: white;
+            font-family: 'Source Code Pro', sans-serif !important;
+            animation: rainbow 5s linear infinite;
+            font-size: 24px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<audio id="music">
+    <source src="https://cdn.discordapp.com/attachments/1254692731586875436/1254704709973966868/3dfc1041-fbf2-42be-b523-79a2d98fce79.mp3?ex=667a7652&is=667924d2&hm=6779c7af5a1b56db3db262e5d6712a2eb16164174b082dfb995f7a583f6b3aed&" type="audio/mpeg">
+</audio>
+<video autoplay muted loop>
+    <source src="https://r2.guns.lol/1a81bba9-e50b-4045-976c-988bccb44819.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<body class="min-h-screen bg-white flex flex-col items-center justify-center">
+    <div class="overlay" onclick="fadeOutOverlay()">
+        <div class="overlay-text">click to enter</div>
+    </div>
+    <div id="overlay-text" class="text-white text-center">
+        <pre>
+
+██╗     ██╗████████╗██╗  ██╗██╗██╗   ██╗███╗   ███╗    ██████╗ ██████╗  ██████╗ 
+██║     ██║╚══██╔══╝██║  ██║██║██║   ██║████╗ ████║   ██╔═══██╗██╔══██╗██╔════╝ 
+██║     ██║   ██║   ███████║██║██║   ██║██╔████╔██║   ██║   ██║██████╔╝██║  ███╗
+██║     ██║   ██║   ██╔══██║██║██║   ██║██║╚██╔╝██║   ██║   ██║██╔══██╗██║   ██║
+███████╗██║   ██║   ██║  ██║██║╚██████╔╝██║ ╚═╝ ██║██╗╚██████╔╝██║  ██║╚██████╔╝
+╚══════╝╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝ ╚═════╝ ╚═╝     ╚═╝╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ 
+                                                                                            
+                                                  
+        </pre>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <div class="rounded-lg p-6 mt-24 max-w-4xl w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-white text-center">
+            <div class="ubox rounded-lg p-4 shadow-md">
+                <div class="flex items-center justify-center mb-4">
+                    <img src="https://i.ibb.co/C7HSkjs/2783-raccoon-3-pfpsgg.jpg" alt="Profile Picture" class="rounded-full h-24 w-24">
+                </div>
+                <div>
+                    <h2 style="animation: rainbow 5s linear infinite;" class="text-lg font-bold mb-2">@m.verick</h2>
+                    <p class="text-gray-400 text-sm">avid cybersecurity enjoyer and decent pentester. contact me to just be friends or hire me to manage your service.<br><i><a href="/maverick.txt"><u>PGP Key</u></a></i><br></p>
+                </div>
+                <div class="flex justify-center mt-4 space-x-4">
+                    <a href="https://discord.com/users/1112896704665108562" class="animation: rainbow 5s linear infinite;"><i class="fab fa-discord"></i></a>
+                    <a href="https://t.me/maverickdaemon" class="animation: rainbow 5s linear infinite;"><i class="fab fa-telegram"></i></a>
+                    <a href="mailto:admin@l1thium.org" class="animation: rainbow 5s linear infinite;"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="ubox rounded-lg p-4 shadow-md">
+                <div class="flex items-center justify-center mb-4">
+                    <img src="https://i.ibb.co/MMwHThx/image.png" alt="Profile Picture" class="rounded-full h-24 w-24">
+                </div>
+                <div>
+                    <h2 style="animation: rainbow 5s linear infinite;" class="text-lg font-bold mb-2">@onionsite</h2>
+                    <p class="text-gray-400 text-sm">average sigma<br>certified Level 9999 Hacker<br><i><a href="/onionsite.txt"><u>PGP Key</u></a></i><br></p>
+                </div>
+                <div class="flex justify-center mt-4 space-x-4"> <!-- kys mt-4 -->
+                    <a href="https://discord.com/users/1120091874636603463" class="animation: rainbow 5s linear infinite;"><i class="fab fa-discord"></i></a>
+                    <a href="https://fortnite.com" class="animation: rainbow 5s linear infinite;"><i class="fab fa-telegram"></i></a>
+                    <a href="mailto:admin@l1thium.org" class="animation: rainbow 5s linear infinite;"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <script>
+                function fadeOutOverlay() {
+                    var overlay = document.querySelector('.overlay');
+                    overlay.classList.add('hidden');
+                    var audio = document.getElementById('music');
+                    audio.play();
+                }
+            </script>
+</body>
