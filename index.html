@@ -9,6 +9,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="icon" href="https://gcdnb.pbrd.co/images/G0vKR2f9cWKt.x-icon?o=1" />
     <style>
+        @keyframes rainbow-b {
+            0% {
+                border-color: #ff0000;
+            }
+
+            16.666% {
+                border-color: #ff9900;
+            }
+
+            33.333% {
+                border-color: #ffff00;
+            }
+
+            50% {
+                border-color: #00ff00;
+            }
+
+            66.666% {
+                border-color: #0000ff;
+            }
+
+            83.333% {
+                border-color: #9900ff;
+            }
+
+            100% {
+                border-color: #ff0000;
+            }
+        }
         @keyframes rainbow {
             0% {
                 color: #ff0000;
@@ -118,7 +147,7 @@
             border-image-source: linear-gradient(to right, #ff0000, #ff9900, #ffff00, #00ff00, #0000ff, #9900ff, #ff0000);
             border-image-repeat: round;
             z-index: -1;
-            animation: rainbow 5s linear infinite;
+            animation: rainbow-b 5s linear infinite;
         }
         .overlay {
             position: fixed;
