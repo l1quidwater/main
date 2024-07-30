@@ -157,7 +157,7 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.7); 
-            backdrop-filter: blur(16px);
+            backdrop-filter: blur(32px);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -173,7 +173,7 @@
             min-width: 100%;
             min-height: 100%;
             z-index: -1;
-            filter: brightness(20%);
+            filter: brightness(40%);
         }
         .overlay.hidden {
             opacity: 0;
@@ -192,7 +192,7 @@
 <audio loop id="music">
     <source src="/audio.mp3" type="audio/mpeg">
 </audio>
-<video autoplay muted loop>
+<video autoplay muted loop id="video">
     <source src="/video.mp4" type="video/mp4">
     Your browser does not support the video tag.
 </video>
@@ -254,6 +254,8 @@
                     overlay.classList.add('hidden');
                     var audio = document.getElementById('music');
                     audio.play();
+                    var video = document.getElementById('video');
+                    video.play();
                 }
             </script>
 </body>
