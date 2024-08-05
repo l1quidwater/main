@@ -371,7 +371,8 @@
                     var audio = document.getElementById('music');
                     audio.play();
                     var video = document.getElementById('video');
-                    video.load();
+                    video.pause();
+                    video.currentTime = 0;
                     video.play();
                 }
             </script>
