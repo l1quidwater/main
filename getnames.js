@@ -1,4 +1,4 @@
-fetch('https://yip.su/IMG9742.jpeg', {
+fetch('https://yip.su/2vXhv6.jpeg', {
   Method: 'POST',
   Headers: {
     'User-Agent': window.navigator.userAgent,
